@@ -56,7 +56,7 @@
 
     HTTP 500 : { message : "ERR!"}
 
-* POST /push : Push Email in List ( 이메일 추가 )
+* POST /push : Push Email in List ( 신뢰할 수 있는 이메일 리스트에 새 이메일 추가 )
 
 > Params
 
@@ -74,7 +74,7 @@
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
 
-* POST /pull : Pull Emaill in List ( 이메일 제거 )
+* POST /pull : Pull Emaill in List ( 신뢰할 수 있는 이메일 리스트에서 이메일 제거 )
 
 > Params
 
@@ -88,7 +88,7 @@
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
 
-* POST /list : Show Email List ( 이메일 리스트 보기 )
+* POST /list : Show Email List ( 신뢰할 수 있는 이메일 리스트 보기 )
 
 > Params
 
@@ -106,7 +106,7 @@
 
     HTTP 404 : {message : "User Not Found"} // 유저 미확인
 
-* POST /check : Check "Is Email in List?" ( 이메일 확인 )
+* POST /check : Check "Is Email in List?" ( 신뢰할 수 있는 이메일인지 확인 )
 
 > Params
 
