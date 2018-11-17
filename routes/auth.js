@@ -1,7 +1,7 @@
 module.exports = auth;
 
 function auth(app, Users, Emails, rndstring) {
-  app.post('/signup', async(req,res)=>{
+  app.post('/signup', async(req,res)=>{ //회원가입
     var user = new Users(req.body);
     user.token = rndstring.generate(40);
     try {
@@ -13,12 +13,14 @@ function auth(app, Users, Emails, rndstring) {
     }
     res.status(200).json(user);
   })
-  .post('/signin', async(req,res)=>{
+
+  .get('/signin', async(req,res)=>{ //로그인
     var result = await Users.findOne(req.body)
     if(!result) return res.status(404).json({message : "Not Found"})
     else return res.status(200).json(result)
   })
-  .post('/addAccount', async (req,res)=>{
+
+  .post('/addAccount', async (req,res)=>{ //쓰루 유저 속 소셜계정 추가
     var new_email = new Emails(req.body);
     try {
       var result = await new_email.save();
@@ -29,11 +31,12 @@ function auth(app, Users, Emails, rndstring) {
     }
     var emailsJson = { email : req.body.email }
     var push_email = await Users.update({token : req.body.token}, {
-      $push : {accountList : emailsJson}
+      $push : {accountList : emailsJson} //신뢰할수있는 이메일 리스트 던지기
     })
     if(!push_email.ok) return res.status(500).json({message : "ERR!"})
     res.status(200).json(new_email)
   })
+
   .post('/removeAccount', async (req,res)=>{
     let email = { email : req.body.email }
     let result = await Users.update({token : req.body.token}, {
@@ -44,14 +47,17 @@ function auth(app, Users, Emails, rndstring) {
     if(result.ok) return res.status(500).json({message : "ERR!"})
     res.status(200).json({message : "success!"})
   })
+
   .post('/aa', async(req,res)=>{
     var result = await Users.find()
     res.send(result)
   })
+
   .post('/bb', async(req,res)=>{
     var result = await Emails.find()
     res.send(result)
   })
+
   .get('/', (req,res)=>{
     res.send('test')
   })

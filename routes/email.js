@@ -14,6 +14,7 @@ function email (app, Users) {
     if(!result.ok) return res.status(500).json({message : "ERR!"})
     else return res.status(200).json({message : "success!"})
   })
+
   .post('/pull', async (req,res)=>{
     var pull_email = { email : req.body.email }
     var result = await Users.update({token : req.body.token}, {
@@ -22,11 +23,13 @@ function email (app, Users) {
     if(!result.ok) return res.status(500).json({message : "ERR!"})
     else return res.status(200).json({message : "success!"})
   })
+
   .post('/list', async (req,res)=>{
     var result = await Users.findOne({token : req.body.token})
     if(!result) return res.status(404).json({message : "User Not Found!"})
     return res.status(200).json({list : result.emailList})
   })
+
   .post('/check', async (req,res)=>{
     var result = await Users.findOne({token : req.body.token})
     if(!result) return res.status(404).json({message : "User Not Found!"})
