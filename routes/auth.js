@@ -48,17 +48,4 @@ function auth(app, Users, Emails, rndstring) {
     res.status(200).json({message : "success!"})
   })
 
-  .post('/aa', async(req,res)=>{
-    var result = await Users.find()
-    res.send(result)
-  })
-
-  .post('/bb', async(req,res)=>{
-    var result = await Emails.find()
-    res.send(result)
-  })
-
-  .get('/', (req,res)=>{
-    res.send('test')
-  })
 }
