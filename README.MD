@@ -22,7 +22,7 @@
 
     HTTP 409 : { message : "already exist"}
 
-* POST /signin : User signin ( 유저 로그인 )
+* GET /signin : User signin ( 유저 로그인 ) 
 
 > Params
 
