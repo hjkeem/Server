@@ -1,6 +1,6 @@
 # Restful Api
 
-* POST /signup : User signup ( 유저 회원가입 )
+* POST /signup : User signup ( 쓰루 회원가입 )
 
 > Params
 
@@ -22,7 +22,7 @@
 
     HTTP 409 : { message : "already exist"}
 
-* POST /signin : User signin ( 유저 로그인 )
+* GET /signin : User signin ( 쓰루 로그인 )
 
 > Params
 
@@ -42,7 +42,7 @@
 
     HTTP 404 : { message : "Not found"}
 
-* POST /addAccount : Push New Email Account ( 쓰루 유저에 이메일 계정 추가 - 다중계정 )
+* POST /addAccount : Push New Email Account ( 쓰루 유저에 소셜 이메일 계정 추가 - 다중계정 )
 
 > Params
 
@@ -56,7 +56,7 @@
 
     HTTP 500 : { message : "ERR!"}
 
-* POST /push : Push Email in List ( 신뢰할 수 있는 이메일 리스트에 새 이메일 추가 )
+* POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 추가 )
 
 > Params
 
@@ -74,7 +74,7 @@
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
 
-* POST /pull : Pull Emaill in List ( 신뢰할 수 있는 이메일 리스트에서 이메일 제거 )
+* POST /pull : Pull Emaill in List ( 신뢰이메일리스트에서 이메일 제거 )
 
 > Params
 
@@ -88,7 +88,7 @@
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
 
-* POST /list : Show Email List ( 신뢰할 수 있는 이메일 리스트 보기 )
+* POST /list : Show Email List ( 신뢰이메일리스트 보기 )
 
 > Params
 
@@ -106,7 +106,7 @@
 
     HTTP 404 : {message : "User Not Found"} // 유저 미확인
 
-* POST /check : Check "Is Email in List?" ( 신뢰할 수 있는 이메일인지 확인 )
+* POST /check : Check "Is Email in List?" ( 신뢰이메일인지 확인 )
 
 > Params
 
@@ -114,7 +114,7 @@
 
 > Response
 
-    HTTP 200 : { message : "success!"} // 이메일이 리스트에 있을 시
+    HTTP 200 : { message : "success!"} // 이메일이 신뢰리스트에 있을 시
 
     HTTP 204 : { message : "Email Not Found!" }
 

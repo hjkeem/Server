@@ -10,7 +10,7 @@ db.once('open', function callback () { console.log("Mongo On"); });
 
 var UsersSchema = mongoose.Schema({
   id: {type : String, unique: true}, // ID
-  name : {type: String}, // 이름
+  //name : {type: String}, // 이름
   passwd : {type : String}, // Password
   token: {type : String}, // 토큰
   emailList : [{
