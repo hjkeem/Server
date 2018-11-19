@@ -42,7 +42,7 @@
 
     HTTP 404 : { message : "Not found"}
 
-* POST /addAccount : Push New Email Account ( 쓰루 유저에 소셜 이메일 계정 추가 - 다중계정 )
+* POST /addAccount : Push New Email Account ( 쓰루 유저에 소셜 이메일 계정 추가 )
 
 > Params
 
@@ -55,6 +55,20 @@
     HTTP 200 : { message : "success!" }
 
     HTTP 500 : { message : "ERR!"}
+
+  * POST /removeAccount : Remove Email Account ( 쓰루 유저에 소셜 이메일 계정 삭제 )
+
+  > Params
+
+      email : {type: String, unique: true}, // 쓰루 유저가 삭제할 이메일 Email
+
+      token : {type: String} // 쓰루 유저의 토큰
+
+  > Response
+
+      HTTP 200 : { message : "success!" }
+
+      HTTP 500 : { message : "ERR!"}
 
 * POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 추가 )
 

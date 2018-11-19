@@ -20,7 +20,7 @@ function auth(app, Users, Emails, rndstring) {
     else return res.status(200).json(result)
   })
 
-  .post('/addAccount', async (req,res)=>{ //쓰루 유저에 이메일 소셜 계정 추가
+  .post('/addAccount', async (req,res)=>{ //쓰루 유저에 이메일 계정 추가
     var new_email = new Emails(req.body);
     try {
       var result = await new_email.save();
@@ -37,7 +37,7 @@ function auth(app, Users, Emails, rndstring) {
     res.status(200).json(new_email)
   })
 
-  .post('/removeAccount', async (req,res)=>{ //쓰루 유저에 이메일 소셜 계정 제거
+  .post('/removeAccount', async (req,res)=>{ //쓰루 유저에 이메일 계정 삭제
     let email = { email : req.body.email }
     let result = await Users.update({token : req.body.token}, {
       $pull : {accountList : email }
@@ -47,4 +47,5 @@ function auth(app, Users, Emails, rndstring) {
     if(result.ok) return res.status(500).json({message : "ERR!"})
     res.status(200).json({message : "success!"})
   })
+
 }
