@@ -70,7 +70,7 @@
 
       HTTP 500 : { message : "ERR!"}
 
-* POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 추가 )
+* POST /pushOne : Push Email in List ( 신뢰이메일리스트에 새 이메일 하나 추가 )
 
 > Params
 
@@ -87,6 +87,24 @@
     HTTP 409 : { message : "already exist!" } // 이메일 중복 ( 리스트에 이미 존재 시 )
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
+
+* POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 다중 추가 )
+
+  > Params
+
+      token : {type: String}, // 유저 토큰
+
+      email : {type : String}, // 추가 할 이메일
+
+  > Response
+
+      HTTP 200 : { message : "success!"} // 성공
+
+      HTTP 404 : { message : "User Not Found!" } // 유저 미확인
+
+      HTTP 409 : { message : "already exist!" } // 이메일 중복 ( 리스트에 이미 존재 시 )
+
+      HTTP 500 : { message : "ERR!" } // 서버 에러
 
 * POST /pull : Pull Emaill in List ( 신뢰이메일리스트에서 이메일 제거 )
 
