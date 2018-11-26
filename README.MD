@@ -103,7 +103,7 @@
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
 
-* POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 다중 추가 ) //리드미 수정 예정 - 
+* POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 다중 추가 ) //리드미 수정 예정 - 코드 완료
 
   > Params
 
