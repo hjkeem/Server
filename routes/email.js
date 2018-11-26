@@ -36,7 +36,7 @@ function email (app, Users) {
     return res.status(200).json({message : "success!"})
   })
 
-  .post('/pull', async (req,res)=>{ //신뢰이메일리스트에 이메일 제거
+  .post('/pullOne', async (req,res)=>{ //신뢰이메일리스트에 이메일 하나 삭제
     var pull_email = { email : req.body.email }
     var result = await Users.update({token : req.body.token}, {
       $pull : {emailList : pull_email}
@@ -44,7 +44,18 @@ function email (app, Users) {
     if(!result.ok) return res.status(500).json({message : "ERR!"})
     else return res.status(200).json({message : "success!"})
   })
-
+  
+  .post('/pull', async (req, res)=>{ //신뢰이메일리스트에 이메일 다중 삭제
+    for ( var i = 0; req.body.list[i] != null; i++) {
+      let pull_email = { email : req.body.list[i] }
+      let result = await Users.update({token : req.body.token}, {
+        $pull : {emailList : pull_email}
+      })
+      if(!result.ok) return res.status(500).json({message : "ERR!"})
+    }
+    res.status(200).json({message : "success!"})
+  })
+    
   .post('/list', async (req,res)=>{ //신뢰이메일리스트 보기
     var result = await Users.findOne({token : req.body.token})
     if(!result) return res.status(404).json({message : "User Not Found!"})
