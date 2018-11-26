@@ -61,8 +61,12 @@
 
 > Response
 
-    HTTP 200 : { message : "success!" }
-
+    HTTP 200 : { 
+      email : "입력한 이메일",
+      token : "유저 토큰"
+    }
+    
+    HTTP 409 : { message : "already exist" } 
     HTTP 500 : { message : "ERR!"}
 
   * POST /removeAccount : Remove Email Account ( 쓰루 유저에 소셜 이메일 계정 삭제 )
@@ -99,7 +103,7 @@
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
 
-* POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 다중 추가 )
+* POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 다중 추가 ) //리드미 수정 예정 - 
 
   > Params
 
@@ -117,7 +121,7 @@
 
       HTTP 500 : { message : "ERR!" } // 서버 에러
 
-* POST /pull : Pull Emaill in List ( 신뢰이메일리스트에서 이메일 제거 )
+* POST /pullOne : Pull Emaill in List ( 신뢰이메일리스트에서 이메일 하나 삭제 )
 
 > Params
 
@@ -130,6 +134,21 @@
     HTTP 200 : { message : "success!"} // 성공
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
+    
+* POST /pull : Pull Emaill in List ( 신뢰이메일리스트에서 이메일 다중 삭제 ) //리드미 수정 예정 - 코드 완료
+
+> Params
+
+    token : {type: String}, // 유저 토큰
+
+    email : {type : String}, // 추가 할 이메일
+
+> Response
+
+    HTTP 200 : { message : "success!"} // 성공
+
+    HTTP 500 : { message : "ERR!" } // 서버 에러
+
 
 * POST /list : Show Email List ( 신뢰이메일리스트 보기 )
 
