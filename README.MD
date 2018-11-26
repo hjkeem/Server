@@ -12,13 +12,7 @@
 
 > Response
 
-    HTTP 200 : {
-      "token": "HtsVQIRpMEYjkbtm3L8tgPOoRFS6mx56YqqqRXH6",
-      "id": "asdasd",
-      "passwd": "1234",
-      "name": "이름",
-      "emailList": []
-    }
+    HTTP 200 : { message : "success!"}
 
     HTTP 409 : { message : "already exist"}
 
@@ -33,11 +27,26 @@
 > Response
 
     HTTP 200 : {
-      "token": "HtsVQIRpMEYjkbtm3L8tgPOoRFS6mx56YqqqRXH6",
-      "id": "asdasd",
-      "passwd": "1234",
-      "name": "이름",
-      "emailList": []
+      "SocialEmailList" : [
+         {
+            "email": "aaa@aaa.com",
+            "passwd": "aaaaa"
+         }
+      ],
+      
+      "EmailList": [
+        {
+            "email": "asdasd@asd"
+        },
+        {
+            "email": "asdqwdqwd@aaa"
+        },
+        {
+            "email": "qeqwd@rtwe"
+        }
+      ],
+      
+      "token": "ledOrx8svzbwXdjBi1A99XImN55DS5sZmuI9ePqj"
     }
 
     HTTP 404 : { message : "Not found"}
@@ -61,6 +70,8 @@
   > Params
 
       email : {type: String, unique: true}, // 쓰루 유저가 삭제할 이메일 Email
+      
+      psswd : {tupe: String}, // 삭제할 이메일의 passwd
 
       token : {type: String} // 쓰루 유저의 토큰
 
