@@ -22,7 +22,7 @@ var UsersSchema = mongoose.Schema({
 
 var EmailsSchema = mongoose.Schema({
   email: {type : String, unique: true}, // email
-  psswd: {type : String},
+  passwd: {type : String},
   token: {type : String}
 })
 
