@@ -45,9 +45,11 @@
 
 > Params
 
-    email : {type: String, unique: true}, // 쓰루 유저가 추가할 이메일 Email
+    email : {type: String, unique: true}, // 쓰루에서 추가할 Email
 
-    token : {type: String} // 쓰루 유저의 토큰
+   passwd : {type: String}, // Email의 passwd
+
+   token : {type: String} // 쓰루 유저의 토큰
 
 > Response
 
@@ -59,17 +61,17 @@
     HTTP 409 : { message : "already exist" } 
     HTTP 500 : { message : "ERR!"}
 
-  * POST /removeAccount : Remove Email Account ( 쓰루 유저에 소셜 이메일 계정 삭제 )
+* POST /removeAccount : Remove Email Account ( 쓰루 유저에 소셜 이메일 계정 삭제 )
 
-  > Params
+> Params
 
-      email : {type: String, unique: true}, // 쓰루 유저가 삭제할 이메일 Email
-      
-      psswd : {tupe: String}, // 삭제할 이메일의 passwd
+   email : {type: String, unique: true}, // 쓰루에서 삭제할 Email
 
-      token : {type: String} // 쓰루 유저의 토큰
+   passwd : {type: String}, // Email의 passwd
 
-  > Response
+   token : {type: String} // 쓰루 유저의 토큰
+
+> Response
 
       HTTP 200 : { message : "success!" }
 
