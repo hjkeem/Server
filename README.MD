@@ -14,6 +14,7 @@
 
     HTTP 409 : { message : "already exist"}
 
+
 * GET /signin : User signin ( 쓰루 로그인 )
 
 > Params
@@ -41,15 +42,16 @@
 
     HTTP 404 : { message : "Not found"}
 
+
 * POST /addAccount : Push New Email Account ( 쓰루 유저에 소셜 이메일 계정 추가 )
 
 > Params
 
     email : {type: String, unique: true}, // 쓰루에서 추가할 Email
-
-   passwd : {type: String}, // Email의 passwd
-
-   token : {type: String} // 쓰루 유저의 토큰
+    
+    passwd : {type: String}, // Email의 passwd
+    
+    token : {type: String} // 쓰루 유저의 토큰
 
 > Response
 
@@ -61,21 +63,23 @@
     HTTP 409 : { message : "already exist" } 
     HTTP 500 : { message : "ERR!"}
 
+
 * POST /removeAccount : Remove Email Account ( 쓰루 유저에 소셜 이메일 계정 삭제 )
 
 > Params
 
-   email : {type: String, unique: true}, // 쓰루에서 삭제할 Email
-
-   passwd : {type: String}, // Email의 passwd
-
-   token : {type: String} // 쓰루 유저의 토큰
+    email : {type: String, unique: true}, // 쓰루에서 추가할 Email
+    
+    passwd : {type: String}, // Email의 passwd
+    
+    token : {type: String} // 쓰루 유저의 토큰
 
 > Response
 
-      HTTP 200 : { message : "success!" }
+    HTTP 200 : { message : "success!" }
 
-      HTTP 500 : { message : "ERR!"}
+    HTTP 500 : { message : "ERR!"}
+
 
 * POST /pushOne : Push Email in List ( 신뢰이메일리스트에 새 이메일 하나 추가 )
 
@@ -95,6 +99,7 @@
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
 
+
 * POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 다중 추가 ) 
 
   > Params
@@ -113,6 +118,7 @@
 
       HTTP 500 : { message : "ERR!" } // 서버 에러
 
+
 * POST /pullOne : Pull Emaill in List ( 신뢰이메일리스트에서 이메일 하나 삭제 )
 
 > Params
@@ -126,6 +132,7 @@
     HTTP 200 : { message : "success!"} // 성공
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
+    
     
 * POST /pull : Pull Emaill in List ( 신뢰이메일리스트에서 이메일 다중 삭제 ) 
 
