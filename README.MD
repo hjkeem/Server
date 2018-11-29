@@ -102,21 +102,21 @@
 
 * POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 다중 추가 ) 
 
-  > Params
+> Params
 
-   token : {type : String}, // 유저 토큰
+    token : {type: String}, // 유저 토큰
+    
+    list : {type : Object} ( ex : { list : ["asd@asd.com", "asdasd@asd.com"] } )
 
-   list : {type : Object} ( ex : { list : ["asd@asd.com", "asdasd@asd.com"] } )
+> Response
 
-  > Response
+    HTTP 200 : { message : "success!"} // 성공
 
-      HTTP 200 : { message : "success!"} // 성공
+    HTTP 404 : { message : "User Not Found!" } // 유저 미확인
 
-      HTTP 404 : { message : "User Not Found!" } // 유저 미확인
+    HTTP 409 : { message : "already exist!" } // 이메일 중복 ( 리스트에 이미 존재 시 )
 
-      HTTP 409 : { message : "already exist!" } // 이메일 중복 ( 리스트에 이미 존재 시 )
-
-      HTTP 500 : { message : "ERR!" } // 서버 에러
+    HTTP 500 : { message : "ERR!" } // 서버 에러
 
 
 * POST /pullOne : Pull Emaill in List ( 신뢰이메일리스트에서 이메일 하나 삭제 )
@@ -138,9 +138,9 @@
 
 > Params
 
-   token : {type : String}, // 유저 토큰
-
-   list : {type : Object} ( ex : { list : ["asd@asd.com", "asdasd@asd.com"] } )
+    token : {type: String}, // 유저 토큰
+    
+    list : {type : Object} ( ex : { list : ["asd@asd.com", "asdasd@asd.com"] } )
 
 > Response
 
