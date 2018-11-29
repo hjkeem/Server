@@ -5,6 +5,8 @@
 > Params
 
     id : {type : String, unique: true}, // ID
+    
+    name : {type : String}, // 이름
 
     passwd : {type : String}, // Password
 
@@ -61,6 +63,7 @@
     }
     
     HTTP 409 : { message : "already exist" } 
+    
     HTTP 500 : { message : "ERR!"}
 
 
