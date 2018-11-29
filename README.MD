@@ -93,13 +93,13 @@
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
 
-* POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 다중 추가 ) //리드미 수정 예정 - 코드 완료
+* POST /push : Push Email in List ( 신뢰이메일리스트에 새 이메일 다중 추가 ) 
 
   > Params
 
-      token : {type: String}, // 유저 토큰
+   token : {type : String}, // 유저 토큰
 
-      email : {type : String}, // 추가 할 이메일
+   list : {type : Object} ( ex : { list : ["asd@asd.com", "asdasd@asd.com"] } )
 
   > Response
 
@@ -117,7 +117,7 @@
 
     token : {type: String}, // 유저 토큰
 
-    email : {type : String}, // 추가 할 이메일
+    email : {type : String}, // 삭제할 이메일
 
 > Response
 
@@ -125,13 +125,13 @@
 
     HTTP 500 : { message : "ERR!" } // 서버 에러
     
-* POST /pull : Pull Emaill in List ( 신뢰이메일리스트에서 이메일 다중 삭제 ) //리드미 수정 예정 - 코드 완료
+* POST /pull : Pull Emaill in List ( 신뢰이메일리스트에서 이메일 다중 삭제 ) 
 
 > Params
 
-    token : {type: String}, // 유저 토큰
+   token : {type : String}, // 유저 토큰
 
-    email : {type : String}, // 추가 할 이메일
+   list : {type : Object} ( ex : { list : ["asd@asd.com", "asdasd@asd.com"] } )
 
 > Response
 
